@@ -41,12 +41,19 @@ export default {
   },
   methods: {
     nextPage() {
+      let nextRoute = '/primary-residence';
       if (this.$root.formData.children === 'yes') {
-        this.$router.push('/children-information');
-      } else if (this.$root.formData.maritalStatus !== 'Single') {
-        this.$router.push('/partner-information');
-      } else {
-        this.$router.push('/primary-residence');
+        nextRoute = '/children-information';
+      } else if (this.$root.formData.maritalStatus === 'Married' || this.$root.formData.maritalStatus === 'Domestic Partner') {
+        nextRoute = '/partner-information';
+      }
+
+      if (this.$route.path !== nextRoute) {
+        this.$router.push(nextRoute).catch(err => {
+          if (err.name !== 'NavigationDuplicated') {
+            throw err;
+          }
+        });
       }
     },
     previousPage() {

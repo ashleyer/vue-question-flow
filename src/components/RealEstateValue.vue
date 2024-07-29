@@ -1,40 +1,48 @@
 <template>
-    <div>
-      <h2>Real Estate Value</h2>
-      <form @submit.prevent="nextPage">
-        <div>
-          <label for="realEstateValue">What is the approximate value of your primary residence or other real estate?</label>
-          <input type="text" v-model="formData.realEstateValue" required />
-        </div>
-        <NavigationButtons :currentStep="5" @nextStep="nextPage" @previousStep="previousPage" />
-      </form>
-    </div>
-  </template>
-  
-  <script>
-  import NavigationButtons from './NavigationButtons.vue';
-  
-  export default {
-    components: {
-      NavigationButtons
+  <div>
+    <h2>Real Estate Value</h2>
+    <form @submit.prevent="nextPage">
+      <div>
+        <label for="realEstateValue">What is the approximate value of your real estate?</label>
+        <input type="text" v-model="$root.formData.realEstateValue" required />
+      </div>
+      <NavigationButtons :currentStep="5" @nextStep="nextPage" @previousStep="previousPage" />
+    </form>
+  </div>
+</template>
+
+<script>
+import NavigationButtons from './NavigationButtons.vue';
+
+export default {
+  components: {
+    NavigationButtons
+  },
+  methods: {
+    nextPage() {
+      const nextRoute = '/preview';
+      if (this.$route.path !== nextRoute) {
+        this.$router.push(nextRoute).catch(err => {
+          if (err.name !== 'NavigationDuplicated') {
+            throw err;
+          }
+        });
+      }
     },
-    data() {
-      return {
-        formData: this.$root.formData
-      };
-    },
-    methods: {
-      nextPage() {
-        this.$router.push('/preview');
-      },
-      previousPage() {
-        if (this.$root.formData.ownOtherRealEstate === 'yes') {
-          this.$router.push('/other-real-estate');
-        } else {
-          this.$router.push('/primary-residence');
-        }
+    previousPage() {
+      let previousRoute = '/primary-residence';
+      if (this.$root.formData.ownOtherRealEstate === 'yes') {
+        previousRoute = '/other-real-estate';
+      }
+
+      if (this.$route.path !== previousRoute) {
+        this.$router.push(previousRoute).catch(err => {
+          if (err.name !== 'NavigationDuplicated') {
+            throw err;
+          }
+        });
       }
     }
-  };
-  </script>
-  
+  }
+};
+</script>
