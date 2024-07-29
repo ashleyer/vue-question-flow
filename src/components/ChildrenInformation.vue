@@ -3,10 +3,17 @@
     <h2>Children Information</h2>
     <form @submit.prevent="nextPage">
       <div>
-        <label for="childrenCount">How many children do you have?</label>
-        <input type="text" v-model="formData.childrenCount" required />
+        <label for="children">Do you have any children?</label>
+        <select v-model="$root.formData.children" @change="handleChildrenChange" required>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
       </div>
-      <NavigationButtons :currentStep="2" @nextStep="nextPage" @previousStep="previousPage" />
+      <div v-if="$root.formData.children === 'yes'">
+        <label for="childrenCount">How many children do you have?</label>
+        <input type="text" v-model="$root.formData.childrenCount" required />
+      </div>
+      <NavigationButtons :currentStep="3" @nextStep="nextPage" @previousStep="previousPage" />
     </form>
   </div>
 </template>
@@ -18,17 +25,31 @@ export default {
   components: {
     NavigationButtons
   },
-  data() {
-    return {
-      formData: this.$root.formData
-    };
-  },
   methods: {
     nextPage() {
-      this.$router.push('/primary-residence');
+      this.$router.push('/primary-residence').catch(err => {
+        if (err.name !== 'NavigationDuplicated') {
+          throw err;
+        }
+      });
     },
     previousPage() {
-      this.$router.push('/');
+      let previousRoute = '/marital-status';
+      if (this.$root.formData.maritalStatus === 'Married' || this.$root.formData.maritalStatus === 'Domestic Partner') {
+        previousRoute = '/partner-information';
+      }
+      this.$router.push(previousRoute).catch(err => {
+        if (err.name !== 'NavigationDuplicated') {
+          throw err;
+        }
+      });
+    },
+    handleChildrenChange(event) {
+      if (event.target.value === 'yes') {
+        this.$root.formData.childrenCount = '';
+      } else {
+        delete this.$root.formData.childrenCount;
+      }
     }
   }
 };

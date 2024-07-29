@@ -9,7 +9,7 @@
           <option value="no">No</option>
         </select>
       </div>
-      <NavigationButtons :currentStep="4" @nextStep="nextPage" @previousStep="previousPage" />
+      <NavigationButtons :currentStep="5" @nextStep="nextPage" @previousStep="previousPage" />
     </form>
   </div>
 </template>

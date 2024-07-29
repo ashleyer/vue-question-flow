@@ -10,7 +10,7 @@
         <label for="partnerBirthYear">What is your partner's birth year?</label>
         <input type="text" v-model="$root.formData.partnerBirthYear" required />
       </div>
-      <NavigationButtons :currentStep="1" @nextStep="nextPage" @previousStep="previousPage" />
+      <NavigationButtons :currentStep="2" @nextStep="nextPage" @previousStep="previousPage" />
     </form>
   </div>
 </template>
@@ -24,10 +24,18 @@ export default {
   },
   methods: {
     nextPage() {
-      this.$router.push('/primary-residence');
+      this.$router.push('/children-information').catch(err => {
+        if (err.name !== 'NavigationDuplicated') {
+          throw err;
+        }
+      });
     },
     previousPage() {
-      this.$router.push('/');
+      this.$router.push('/marital-status').catch(err => {
+        if (err.name !== 'NavigationDuplicated') {
+          throw err;
+        }
+      });
     }
   }
 };

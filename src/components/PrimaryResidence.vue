@@ -9,7 +9,7 @@
           <option value="no">No</option>
         </select>
       </div>
-      <NavigationButtons :currentStep="3" @nextStep="nextPage" @previousStep="previousPage" />
+      <NavigationButtons :currentStep="4" @nextStep="nextPage" @previousStep="previousPage" />
     </form>
   </div>
 </template>
@@ -37,11 +37,13 @@ export default {
       }
     },
     previousPage() {
-      let previousRoute = '/';
+      let previousRoute = '/children-information';
       if (this.$root.formData.children === 'yes') {
         previousRoute = '/children-information';
       } else if (this.$root.formData.maritalStatus === 'Married' || this.$root.formData.maritalStatus === 'Domestic Partner') {
         previousRoute = '/partner-information';
+      } else {
+        previousRoute = '/marital-status';
       }
 
       if (this.$route.path !== previousRoute) {

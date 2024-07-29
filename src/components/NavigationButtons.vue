@@ -16,26 +16,27 @@ export default {
     nextRoute() {
       // Determine the next route based on the current step
       const routes = [
-        '/', // step 0
-        '/partner-information', // step 1
-        '/children-information', // step 2
-        '/primary-residence', // step 3
-        '/other-real-estate', // step 4
-        '/real-estate-value', // step 5
-        '/preview' // step 6
+        '/marital-status',         // step 1
+        '/partner-information',    // step 2
+        '/children-information',   // step 3
+        '/primary-residence',      // step 4
+        '/other-real-estate',      // step 5
+        '/real-estate-value',      // step 6
+        '/preview'                 // step 7
       ];
       return routes[this.currentStep + 1];
     },
     previousRoute() {
       // Determine the previous route based on the current step
       const routes = [
-        '/', // step 0
-        '/partner-information', // step 1
-        '/children-information', // step 2
-        '/primary-residence', // step 3
-        '/other-real-estate', // step 4
-        '/real-estate-value', // step 5
-        '/preview' // step 6
+        '/',                       // step 0
+        '/marital-status',         // step 1
+        '/partner-information',    // step 2
+        '/children-information',   // step 3
+        '/primary-residence',      // step 4
+        '/other-real-estate',      // step 5
+        '/real-estate-value',      // step 6
+        '/preview'                 // step 7
       ];
       return routes[this.currentStep - 1];
     }
@@ -43,18 +44,21 @@ export default {
   methods: {
     previousStep() {
       this.$emit('previousStep');
+      // Navigate to the previous route only if it's different from the current one
       if (this.$route.path !== this.previousRoute) {
         this.$router.push(this.previousRoute);
       }
     },
     nextStep() {
       this.$emit('nextStep');
+      // Navigate to the next route only if it's different from the current one
       if (this.$route.path !== this.nextRoute) {
         this.$router.push(this.nextRoute);
       }
     },
     submitForm() {
       this.$emit('submitForm');
+      // Navigate to the preview page only if it's different from the current one
       if (this.$route.path !== '/preview') {
         this.$router.push('/preview');
       }
@@ -62,12 +66,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-button {
-  margin: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-</style>

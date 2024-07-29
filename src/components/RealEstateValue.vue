@@ -6,7 +6,7 @@
         <label for="realEstateValue">What is the approximate value of your real estate?</label>
         <input type="text" v-model="$root.formData.realEstateValue" required />
       </div>
-      <NavigationButtons :currentStep="5" @nextStep="nextPage" @previousStep="previousPage" />
+      <NavigationButtons :currentStep="6" @nextStep="nextPage" @previousStep="previousPage" />
     </form>
   </div>
 </template>
