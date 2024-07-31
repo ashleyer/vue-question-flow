@@ -28,5 +28,9 @@
   <style scoped>
  button  {
  margin-top: 100px;
+ font-size: 25px;
+ background-color: #2b126f;
+ color: white;
+ font-family: 'Courier New', Courier, monospace;
  }
   </style>

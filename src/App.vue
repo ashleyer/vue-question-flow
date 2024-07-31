@@ -24,18 +24,20 @@ body {
   margin: 0; /* Add this line */
   padding: 0; /* Add this line */
 }
-p {
-  font-size: 20px;
-}
 
 h2 { 
-  font-size: 35px;
+  font-size: 40px;
   text-decoration: underline;
   color: #2b126f;
   padding-bottom: 50px;
+  margin-top: 50px;
 }
 
 #app {
   text-align: center;
+}
+
+label {
+font-size: 24px;
 }
 </style>
