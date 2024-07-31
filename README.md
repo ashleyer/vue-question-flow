@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a dynamic question flow system designed to collect user information efficiently. The system presents questions based on the user's previous answers, ensuring that only relevant questions are displayed. The focus is on gathering personal, partner, children, and real estate information in a structured manner. *(done as an employment proposal to LYKAS)
+This project is a dynamic question flow system designed to collect user information efficiently. The system presents questions based on the user's previous answers, ensuring that only relevant questions are displayed. The focus is on gathering personal, partner, children, and real estate information in a structured manner. *done as an employment proposal to **LYKAS***
 
 ## Deployed Application
 
@@ -63,51 +63,10 @@ This project is a dynamic question flow system designed to collect user informat
 
 (To come)
 
-## Project Structure
-
-(this may change during development)
-`
-├── public/
-│   ├── index.html
-├── src/
-│   ├── assets/
-│   ├── components/
-│   │   ├── ChildrenInformation.vue
-│   │   ├── NavigationButtons.vue
-│   │   ├── OtherRealEstate.vue
-│   │   ├── PartnerInformation.vue
-│   │   ├── PersonalInformation.vue
-│   │   ├── PrimaryResidence.vue
-│   │   ├── PreviewPage.vue
-│   │   ├── RealEstateValue.vue
-│   ├── views/
-│   │   ├── Login.vue
-│   │   ├── Register.vue
-│   ├── App.vue
-│   ├── main.js
-├── tests/
-│   ├── unit/
-│   │   ├── PersonalInformation.spec.js
-├── cypress/
-│   ├── integration/
-│   │   ├── personal_information_spec.js
-│   ├── plugins/
-│   │   ├── index.js
-│   ├── support/
-│   │   ├── commands.js
-│   │   ├── index.js
-├── .gitignore
-├── babel.config.js
-├── cypress.json
-├── jest.config.js
-├── package.json
-├── README.md
-`
-
 ## Acknowledgements
 
-Special thanks to the LYKAS team for the opportunity to learn `Vue` and create this project.
+Special thanks to the **LYKAS** team for the opportunity to learn `Vue` and create this project.
 
 ## Contact
 
-For any questions, bugs, or support, please contact Ashley at [ashleye.romano@gmail.com](mailto:ashleye.romano@gmail.com).
+For any questions, bugs, or support, please contact **Ashley** at [ashleye.romano@gmail.com](mailto:ashleye.romano@gmail.com).
