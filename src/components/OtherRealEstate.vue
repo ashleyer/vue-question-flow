@@ -23,11 +23,7 @@ export default {
   },
   methods: {
     nextPage() {
-      let nextRoute = '/financial-goals';
-      if (this.$root.formData.ownOtherRealEstate === 'yes') {
-        nextRoute = '/real-estate-value';
-      }
-
+      const nextRoute = '/preview';
       if (this.$route.path !== nextRoute) {
         this.$router.push(nextRoute).catch(err => {
           if (err.name !== 'NavigationDuplicated') {
@@ -37,7 +33,11 @@ export default {
       }
     },
     previousPage() {
-      const previousRoute = '/primary-residence';
+      let previousRoute = '/real-estate-value';
+      if (this.$root.formData.ownPrimaryResidence === 'yes') {
+        previousRoute = '/primary-residence' ;
+      }
+
       if (this.$route.path !== previousRoute) {
         this.$router.push(previousRoute).catch(err => {
           if (err.name !== 'NavigationDuplicated') {

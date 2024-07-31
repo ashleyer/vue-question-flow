@@ -22,27 +22,32 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
   background-color: #f8f9fa;
-  border-bottom: 1px solid #111112;
+  border-bottom: 5px solid #111112;
 }
 
 .logo {
-  max-width: 350px; /* Increase the max-width to make the logo bigger */
+  max-width: 500px;
+  padding-left: 100px;
+
 }
 
 .nav {
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  padding-right: 100px;
+  padding-bottom: 0px;
+  
 }
 
 .nav-link {
-  text-decoration: none;
+  text-decoration: underline black;
   color: #2b126f;
   font-weight: bold;
+  font-size: 25px;
 }
 
 .nav-link:hover {
-  text-decoration: underline;
+  text-decoration: overline black
 }
 </style>

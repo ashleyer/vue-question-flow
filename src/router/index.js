@@ -8,14 +8,16 @@ import PrimaryResidence from '@/components/PrimaryResidence.vue';
 import OtherRealEstate from '@/components/OtherRealEstate.vue';
 import RealEstateValue from '@/components/RealEstateValue.vue';
 import PreviewPage from '@/components/PreviewPage.vue';
+import Login from '@/components/Login.vue';
+import Register from '@/components/Register.vue';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'PersonalInformation',
+      name: 'personal-information',
       component: PersonalInformation
     },
     {
@@ -52,6 +54,18 @@ export default new Router({
       path: '/preview',
       name: 'PreviewPage',
       component: PreviewPage
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     }
   ]
 });
+
+export default router;

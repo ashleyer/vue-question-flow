@@ -17,11 +17,22 @@ export default {
 </script>
 
 <style>
-/* Global styles can go here */
+/* Global styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  font-family: 'Courier New', Courier, monospace, sans-serif;
+  background-color: #2b126f3a;
+  margin: 0; /* Add this line */
+  padding: 0; /* Add this line */
+}
+p {
+  font-size: 20px;
+}
+
+h2 { 
+  font-size: 35px;
+  text-decoration: underline;
+  color: #2b126f;
+  padding-bottom: 50px;
 }
 
 #app {
